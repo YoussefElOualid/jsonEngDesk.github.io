@@ -1,0 +1,93 @@
+<script src="js/jquery.js"></script>
+<script src="js/jsonEngDesk.js"></script>
+<link href="bootstrap.min.css" rel="stylesheet" />
+
+<meta charset="utf-8"/>
+<script>
+$(function(){
+		$('.events').on('change',function(){
+			alert($(this).val()+':'+$(".events option:selected").text());
+		})
+})
+
+</script>
+
+<script return-output=".extern"
+json-url="http://www.w3schools.com/website/customers_mysql.php" json-output="Name,City,Country" tag="label" tag-class="col-md-4 col-xs-4 text-primary"  tag-parent-class="form-group" tag-parent="div" >
+</script>
+
+
+
+
+
+<style>
+.test label{
+	padding : 5px;
+	border-bottom:2px solid green;
+	margin-bottom : 5px;
+}
+.test{
+	color : red;
+	margin-bottom: 15px;
+}
+
+</style>
+
+<div class="row">
+<fieldset class="col-md-6"><legend>Universite</legend>
+<ul
+json-url="http://127.0.0.1/mad3/Out" json-output="nom" tag="li">
+</ul>
+</fieldset>
+
+<fieldset class="col-md-6"><legend>Source Contact</legend>
+<div
+json-url="http://127.0.0.1/mad3/GETSC" json-output="Libelle_SC,Prem_Date_SC" tag="label" tag-class="col-md-6 col-xs-6 text-primary"  tag-parent-class="form-group" tag-parent="div" >
+</div>
+</fieldset>
+
+<fieldset class="col-md-6"><legend>Fichier JSON</legend>
+<div
+json-url="json.php" json-output="id,Prenom,nom" tag="label" tag-class="col-md-4 col-xs-4 text-primary"  tag-parent-class="form-group" tag-parent="div" >
+</div>
+</fieldset>
+
+<fieldset class="col-md-6"><legend>Fichier HTML</legend>
+<div
+json-url="json.html">
+</div>
+</fieldset>
+
+<fieldset class="col-md-6"><legend>EXtern URL</legend>
+<div class="extern">
+</div>
+</fieldset>
+
+
+<fieldset class="col-md-6"><legend>Events 
+<button 
+return-output=".events" 
+json-output="Id_SC,Libelle_SC"  
+tag="option" 
+json-click="http://127.0.0.1/mad3/GETSC"
+>Click</button>
+</legend>
+
+<select class="events" multiple json-url="http://127.0.0.1/mad3/GETSC" json-output="Id_SC,Libelle_SC"  tag="option" >
+</select>
+</fieldset>
+
+<fieldset class="col-md-6"><legend>Source JSON 
+<button 
+return-output=".source" 
+json-output="nom"  
+tag="label" 
+json-click='php/Obj.php?f=result'
+>Click</button>
+</legend>
+
+<div class="source">
+</div>
+</fieldset>
+
+</div>
